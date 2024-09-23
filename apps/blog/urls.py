@@ -17,3 +17,4 @@ urlpatterns = [
     path("blog/<int:pk>", BlogItemView.as_view(), name="blog_item"),
     *router.urls,
 ]
+

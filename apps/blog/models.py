@@ -19,3 +19,4 @@ class Blog(models.Model):
 class Comments(models.Model):
     text = models.TextField()
     blog = models.ForeignKey(Blog,related_name='comments', on_delete=models.CASCADE)
+

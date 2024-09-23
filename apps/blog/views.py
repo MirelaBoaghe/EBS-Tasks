@@ -52,7 +52,7 @@ class BlogDetailView(APIView):
                 'comments': comments_data
             }, status=status.HTTP_200_OK)
         except Blog.DoesNotExist:
-            return Response({'error': 'Blog not found'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Blog not found!'}, status=status.HTTP_404_NOT_FOUND)
 
 class CommentCreateView(APIView):
     def post(self, request, *args, **kwargs):
