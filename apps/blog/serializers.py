@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.blog.models import Blog, Category
+from apps.blog.models import Blog, Category, Comments
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -8,8 +8,15 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = "__all__"
 
+class CommentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Comments
+        fields = ['blog','text']
 
 class BlogSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Blog
-        fields = "__all__"
+     comments = CommentSerializer(many=True, read_only=True)
+
+     class Meta:
+         model = Blog
+         fields = "__all__"
